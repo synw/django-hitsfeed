@@ -18,6 +18,19 @@ Urls: ``url('^hits/', include('hitsfeed.urls')),``
 
 Run the migrations.
 
+Create a template ``templates/instant/extra_clients.js`` with this content:
+
+  ```django
+{% if request.path == "/hits/" %}
+	{% include "instant/channels/staff/client.js" %}
+{% endif %}
+  ```
+Create another template ``templates/instant/extra_handlers.js`` with this content:
+
+  ```django
+{% include "hitsfeed/js/handlers.js" %}
+  ```
+
 Usage
 -----
 
