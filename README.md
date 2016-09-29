@@ -13,8 +13,6 @@ pip install django-mptt
 pip install git+https://github.com/synw/django-hitsfeed.git
   ```
 
-``pip install git+https://github.com/synw/django-hitsfeed.git``
-
 Installed apps:
 
   ```python
