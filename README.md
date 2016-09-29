@@ -16,6 +16,8 @@ Add ``'hitsfeed.middleware.HitsFeedMiddleware'`` to MIDDLEWARE_CLASSES in settin
 
 Urls: ``url('^hits/', include('hitsfeed.urls')),``
 
+Run the migrations.
+
 Usage
 -----
 
