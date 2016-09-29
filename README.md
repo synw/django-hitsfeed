@@ -6,7 +6,7 @@ Real time hits monitoring for Django. Define a custom url tree and monitor the h
 Install
 -------
 
-Install [Django Instant](http://django-instant.readthedocs.io/en/latest/src/install.html).
+Install [Django Instant](http://django-instant.readthedocs.io/en/latest/src/install.html) then:
 
   ```python
 pip install django-mptt
