@@ -8,9 +8,19 @@ Install
 
 Install [Django Instant](http://django-instant.readthedocs.io/en/latest/src/install.html).
 
+  ```python
+pip install django-mptt
+pip install git+https://github.com/synw/django-hitsfeed.git
+  ```
+
 ``pip install git+https://github.com/synw/django-hitsfeed.git``
 
-Add ``"hitsfeed",`` to installed apps.
+Installed apps:
+
+  ```python
+"mptt",
+"hitsfeed",
+  ```
 
 Add ``'hitsfeed.middleware.HitsFeedMiddleware'`` to MIDDLEWARE_CLASSES in settings.
 
