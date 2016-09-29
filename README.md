@@ -14,6 +14,13 @@ Add ``"hitsfeed",`` to installed apps.
 
 Add ``'hitsfeed.middleware.HitsFeedMiddleware'`` to MIDDLEWARE_CLASSES in settings.
 
+Required settings:
+
+  ```python
+SITE_SLUG = "mysite"
+INSTANT_STAFF_CHANNELS = ['$mysite_staff']
+  ```
+
 Urls: ``url('^hits/', include('hitsfeed.urls')),``
 
 Run the migrations.
@@ -34,7 +41,8 @@ Create another template ``templates/instant/extra_handlers.js`` with this conten
 Usage
 -----
 
-Define an url tree in the admin and then go to ``/hits/`` to monitor these urls.
+Define an url tree in the admin and then go as staff to ``/hits/`` to monitor these urls. Only the staff can see this
+page.
 
 Screenshot
 ----------
