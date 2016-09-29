@@ -18,13 +18,11 @@ class HitsFeedMiddleware(MiddlewareMixin):
         data["method"] = request.method
         data['ip'] = request.META['REMOTE_ADDR']
         data['user_agent'] = request.META['HTTP_USER_AGENT']
+        data['referer'] = ''
         if data.has_key('HTTP_REFERER'):
             data['referer'] = request.META['HTTP_REFERER']
-        else:
-            data['referer'] = ''
+        data['user'] = 'Anonymous'
         if request.user.is_authenticated():
-            data['user'] = request.user.username
-        else:
-            data['user'] = 'Anonymous'
+            data['user'] = request.user.username 
         broadcast(message="Hit", event_class="__hit__", data=data, target="staff")
         return response
