@@ -64,4 +64,5 @@ Todo
 
 - Filtering options: users only, filter ajax, etc..
 - Exclude paths
-- Fix delayed js callbacks with promises
+- Fix delayed js callbacks
+- Maybe add some persistency layers
