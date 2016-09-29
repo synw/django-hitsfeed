@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load staticfiles mptt_tags instant_tags %}
+
+{% block title %}Hitsfeed{% endblock title %}
+
+{% block content %}
+<script type="text/javascript" src="{% static 'rechat/js/smoothie.js' %}"></script>
+<link rel="stylesheet" media="screen, projection" href="{% static 'hitsfeed/tree.css' %}" />
+<div class="row">
+	<div class="col-xs-12">
+			<h1>Live hits</h1>
+		</div>
+	</div>
+<div class="row">
+	<div class="col-xs-12 col-xs-7">
+		<div class="tree">
+			<ul>
+			{% recursetree nodes %}
+		        <li>
+		        	{% with node.url|get_id_from_url as id %}
+			            <a href="{{ node.url }}" id="{{ id }}">
+			            	{{ node.url }}
+			            	<div id="displayzone_{{ id }}" class="displayzone"></div>
+			            </a>
+		            {% endwith %}
+		            {% if not node.is_leaf_node %}
+		                <ul>
+		                    {{ children }}
+		                </ul>
+		            {% endif %}
+		        </li>
+		    {% endrecursetree %}
+		    </ul>
+	    </div>
+	</div>
+	<div class="col-xs-12 col-xs-5">
+	<canvas id="hitschart" width="460" height="100"></canvas>
+	<table id="hitsfeed">
+	    <thead>
+	      <tr>
+	        <th>Path</th>
+	        <th>Ip</th>
+	        <th>User</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    </tbody>
+ 	</table>
+	{% include "instant/channels/staff/widget.html" %}
+	</div>
+</div>
+<script type="text/javascript">{% include "hitsfeed/js/activity.js" %}</script>
+{% endblock content %}
