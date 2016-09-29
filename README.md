@@ -63,7 +63,6 @@ Todo
 ----
 
 - Filtering options: users only, filter ajax, etc..
-- Exclude paths
 - Fix delayed js callbacks
 - View permission options: superuser, staff, groups
 - Maybe add some optional persistency layers
