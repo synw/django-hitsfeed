@@ -65,4 +65,6 @@ Todo
 - Filtering options: users only, filter ajax, etc..
 - Fix delayed js callbacks
 - View permission options: superuser, staff, groups
+- Multiple trees
+- Separate lines for anonymous and registered users in the linechart
 - Maybe add some optional persistency layers
