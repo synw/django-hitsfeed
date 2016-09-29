@@ -6,9 +6,9 @@ Real time hits monitoring for Django. Define a custom url tree and monitor the h
 Install
 -------
 
-Install [Django Instant](http://django-instant.readthedocs.io/en/latest/src/install.html).
+Install [Django Instant](https://github.com/synw/django-hitsfeed.git).
 
-``pip install git+http://django-instant.readthedocs.io/en/latest/``
+``pip install git+http://django-instant.readthedocs.io/en/latest/src/install.html``
 
 Add ``"hitsfeed",`` to installed apps.
 
@@ -24,7 +24,7 @@ Define an url tree in the admin and then go to ``/hits/`` to monitor these urls.
 Screenshot
 ----------
 
-![Dashboard screenshot](https://raw.githubusercontent.com/synw/django-hitsfeed/master/docs/img/screenshot.png)
+![Dashboard screenshot](https://raw.githubusercontent.com/synw/django-hitsfeed/master/doc/img/screenshot.png)
 
 Red is a current hit and green is a previous hit.
 
