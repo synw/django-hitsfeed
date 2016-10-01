@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import importlib
 from django import template
+from django.template.defaultfilters import stringfilter
 from django.utils.safestring import mark_safe
 from hitsfeed.models import UrlTree
 
@@ -26,5 +26,8 @@ def get_tree():
     output = '<div class="tree">\n'+recurse_nodes(root_node)+'\n</div>'
     return mark_safe(output)
 
-    
-    
+@register.filter
+@stringfilter
+def get_id_from_url(url):
+    xid = url.replace('/','---')
+    return xid
