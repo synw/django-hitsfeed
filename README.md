@@ -22,13 +22,6 @@ Installed apps:
 
 Add ``'hitsfeed.middleware.HitsFeedMiddleware'`` to MIDDLEWARE_CLASSES in settings.
 
-Required settings:
-
-  ```python
-SITE_SLUG = "mysite"
-INSTANT_STAFF_CHANNELS = ['$mysite_staff']
-  ```
-
 Urls: ``url('^hits/', include('hitsfeed.urls')),``
 
 Run the migrations.
@@ -37,13 +30,19 @@ Create a template ``templates/instant/extra_clients.js`` with this content:
 
   ```django
 {% if request.path == "/hits/" %}
-	{% include "instant/channels/staff/client.js" %}
+	{% if user.is_staff %}
+		{% include "instant/channels/staff/client.js" %}
+	{% endif %}
 {% endif %}
   ```
 Create another template ``templates/instant/extra_handlers.js`` with this content:
 
   ```django
-{% include "hitsfeed/js/handlers.js" %}
+{% if request.path == "/hits/" %}
+	{% if user.is_staff %}
+		{% include "hitsfeed/js/handlers.js" %}
+	{% endif %}
+{% endif %}
   ```
 
 Usage
