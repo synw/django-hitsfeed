@@ -22,7 +22,18 @@ Installed apps:
 
 Add ``'hitsfeed.middleware.HitsFeedMiddleware'`` to MIDDLEWARE_CLASSES in settings.
 
-Urls: ``url('^hits/', include('hitsfeed.urls')),``
+Urls:
+
+  ```python
+from instant.views import instant_auth
+
+urlpatterns = [
+	# ...
+    url(r'^centrifuge/auth/$', instant_auth, name='instant-auth'),
+    url('^instant/', include('instant.urls')),
+    url('^hits/', include('hitsfeed.urls')),
+    ]
+  ```
 
 Run the migrations.
 
